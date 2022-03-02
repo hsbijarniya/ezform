@@ -1,7 +1,8 @@
 name: ezform
 description: A new Flutter package project.
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://ensorta.com
+repository: https://github.com/hsbijarniya/ezform
 
 environment:
   sdk: ">=2.15.1 <3.0.0"

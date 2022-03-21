@@ -7,43 +7,36 @@ class EzFormExample extends StatelessWidget {
 
   EzForm form = EzForm(
     inputs: {
-      'name': EzFormInput(
-        title: 'Name',
-        value: 'Hari Singh',
-        validator: (value) => true,
-      ),
-      'email': EzFormInput(
-        title: 'Email',
-        value: 'hsbijarniya@gmail.com',
-        validator: (value) => true,
-      ),
-      'password': EzFormInput(
-        type: 'password',
-        title: 'Password',
-        value: 'password',
-        validator: (value) => true,
-      ),
+      'name': {
+        'title': 'Name',
+        'validator': (value) => true,
+      },
+      'email': {
+        'title': 'Email',
+        'validator': (value) => true,
+      },
+      'password': {
+        'type': 'password',
+        'title': 'Password',
+        'validator': (value) => true,
+      },
       'address': {
-        'line': EzFormInput(
-          title: 'Line',
-          value: 'B97',
-          validator: (value) => true,
-        ),
-        'city': EzFormInput(
-          title: 'City',
-          value: 'Jaipur',
-          validator: (value) => true,
-        ),
-        'state': EzFormInput(
-          title: 'State',
-          value: 'Rajasthan',
-          validator: (value) => true,
-        ),
-        'country': EzFormInput(
-          title: 'Country',
-          value: 'India',
-          validator: (value) => true,
-        ),
+        'line': {
+          'title': 'Line',
+          'validator': (value) => true,
+        },
+        'city': {
+          'title': 'City',
+          'validator': (value) => true,
+        },
+        'state': {
+          'title': 'State',
+          'validator': (value) => true,
+        },
+        'country': {
+          'title': 'Country',
+          'validator': (value) => true,
+        },
       }
     },
     values: {

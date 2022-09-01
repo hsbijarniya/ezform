@@ -78,18 +78,22 @@ class EzFormInputProps {
 class EzForm {
   Map values = {};
 
-  EzForm({
-    required Map inputs,
+  EzForm(
+    Map inputs, {
     Map? values,
   }) {
-    this.values = deepMergeInputs(initInputs(inputs), values ?? {});
+    this.values = _deepMergeInputs(initInputs(inputs), values ?? {});
   }
 
   get json {
-    return prepareInputs(values);
+    return _prepareInputs(values);
   }
 
-  Map prepareInputs(Map inputs) {
+  get controllers {
+    return values;
+  }
+
+  Map _prepareInputs(Map inputs) {
     Map outputs = {};
 
     inputs.forEach((key, value) {
@@ -99,7 +103,7 @@ class EzForm {
       }
 
       if (value is Map) {
-        outputs[key] = prepareInputs(value);
+        outputs[key] = _prepareInputs(value);
 
         return;
       }
@@ -110,7 +114,7 @@ class EzForm {
     return outputs;
   }
 
-  Map deepMergeInputs(Map inputA, Map inputB) {
+  Map _deepMergeInputs(Map inputA, Map inputB) {
     Map outputs = {};
 
     List keys = List<dynamic>.from(inputA.keys),
@@ -123,7 +127,7 @@ class EzForm {
           valB = inputB.containsKey(key) ? inputB[key] : null;
 
       if (valA is Map && valB is Map) {
-        outputs[key] = deepMergeInputs(valA, valB);
+        outputs[key] = _deepMergeInputs(valA, valB);
 
         continue;
       }
